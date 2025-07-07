@@ -1,0 +1,90 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>PawGlow UK - Order Now</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f9f9f9;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+      color: #333;
+    }
+    header {
+      background-color: #ff6f61;
+      color: white;
+      padding: 30px 0;
+    }
+    .container {
+      padding: 20px;
+      max-width: 600px;
+      margin: auto;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      margin-top: 30px;
+    }
+    input, textarea {
+      padding: 12px;
+      font-size: 16px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
+    button {
+      padding: 14px;
+      background-color: #25D366;
+      color: white;
+      border: none;
+      font-size: 18px;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    footer {
+      margin-top: 40px;
+      font-size: 14px;
+      color: #777;
+      padding-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>PawGlow UK</h1>
+    <p>Natural Grooming for Happy Paws 🐾</p>
+  </header>
+
+  <div class="container">
+    <h2>Place Your Order</h2>
+    <form id="orderForm">
+      <input type="text" id="name" placeholder="Your Name" required />
+      <input type="text" id="phone" placeholder="Phone Number" required />
+      <input type="text" id="address" placeholder="Delivery Address" required />
+      <input type="hidden" id="product" value="PawGlow UK" />
+      <button type="submit">Submit on WhatsApp</button>
+    </form>
+  </div>
+
+  <footer>&copy; 2025 PawGlow UK</footer>
+
+  <script>
+    const form = document.getElementById('orderForm');
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const name = document.getElementById('name').value;
+      const phone = document.getElementById('phone').value;
+      const address = document.getElementById('address').value;
+      const product = document.getElementById('product').value;
+
+      const message = `*New Order Received*\nName: ${name}\nPhone: ${phone}\nAddress: ${address}\nProduct: ${product}`;
+      const url = `https://wa.me/8801337695586?text=${encodeURIComponent(message)}`;
+      window.open(url, '_blank');
+    });
+  </script>
+</body>
+</html>
